@@ -1,3 +1,4 @@
+.ONESHELL:
 # Makefile for building the EMA Docker container
 # Default version for the resulting image definition by default is the git commit short SHA1.
 # Deployment builds should set VERSION and the "publish" make rule
@@ -6,9 +7,10 @@
 # Pull in the base version number.  This keeps the version information
 # in a separate file to make source control more convenient and descriptive
 
+
 IMAGE_NAME=darint00/debug-pod
 OS_VERSION=ubuntu:20.04
-RELEASE_NAME=${IMAGE_NAME}:v2
+RELEASE_NAME=${IMAGE_NAME}:v3
 RELEASE_LATEST=${IMAGE_NAME}:latest
 
 PROGRESS:=--progress=plain
@@ -24,7 +26,23 @@ p=`/home/KEYS/dockerhub.darint00`
 
 default:	build
 
-all:		build  publish
+all:		webapps build  publish
+
+clean:
+	rm webapp1/webapp1
+	rm webapp2/webapp2
+
+webapps:   webapp-1 webapp-2
+
+
+webapp-1:
+	cd webapp1
+	go build -o webapp1 main.go
+
+webapp-2:
+	cd webapp2
+	go build -o webapp2 main.go
+
 
 build:
 	$(CONTAINER) build  $(BUILD_ARGS) $(PROGRESS) --tag $(RELEASE_NAME) .
