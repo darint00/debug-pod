@@ -1,0 +1,56 @@
+otel_agent:
+  config:
+    metrics:
+      - ema_name: cpuLoad
+        enabled: true 
+        sample_rate_seconds: 10 
+      - ema_name: networkLoadDetail
+        enabled: true 
+        sample_rate_seconds: 10 
+      -  ema_name: activeQueriesDetail
+         enabled: false
+      -  ema_name: connectedSessionsDetail
+         enabled: false
+      -  ema_name: hourlyQueriesDetail
+         enabled: false
+      -  ema_name: idleTransactions
+         enabled: false
+      -  ema_name: memoryLoad
+         enabled: true 
+         sample_rate_seconds: 10 
+      -  ema_name: isResponsiveDetail
+         enabled: false
+      -  ema_name: nodeDataSkewDetail
+         enabled: false
+      -  ema_name: tableDataSkewDetail
+         enabled: false
+      -  ema_name: cpuLoad
+         enabled: false
+      -  ema_name: networkLoadDetail
+         enabled: false
+      -  ema_name: vectorServers
+         enabled: false
+      -  ema_name: opentransactions
+         enabled: false
+      -  ema_name: pdtUsageDetail
+         enabled: false
+      -  ema_name: queryMemoryDetail
+         enabled: false
+      -  ema_name: hourlyLoadDetail
+         enabled: false
+      -  ema_name: queryParallelismDetail
+         enabled: false
+      -  ema_name: checkpointHistory
+         enabled: false
+      -  ema_name: hdfsUsed
+         enabled: false     
+      -  ema_name: hdfsVector
+         enabled: false
+      -  ema_name: walCondensation
+         crit_threshold: 20
+         enabled: false
+      -  ema_name: updatePropagation
+         enabled: false
+      -  ema_name: logEvents
+         enabled: false
+
