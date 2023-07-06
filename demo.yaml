@@ -1,0 +1,29 @@
+imagePullSecrets:
+  - name: avreadonly
+enableEmaSecurity: false
+
+otel_agent:
+  config:
+    ema:
+      endpoint: http://vectorh-leader-0:43036/v1
+    attribute_map:
+      node_name:
+          "vectorh-leader-0.vectorh-leader.helm-testing.svc.cluster.local": "Leader"
+          "vectorh-worker-0.vectorh-worker.helm-testing.svc.cluster.local": "Worker-0"
+          "vectorh-worker-1.vectorh-worker.helm-testing.svc.cluster.local": "Worker-1"
+
+otel_collector:
+  enabled: true 
+
+otel_prometheus:
+  enabled: true 
+  service:
+    type: LoadBalancer 
+    port: 9090
+
+otel_grafana:
+  enabled: true 
+  service:
+    type: LoadBalancer 
+    port: 3000 
+
