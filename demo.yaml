@@ -3,6 +3,8 @@ imagePullSecrets:
 enableEmaSecurity: false
 
 otel_agent:
+  image:
+    pullPolicy: Always
   config:
     ema:
       endpoint: http://vectorh-leader-0:43036/v1
@@ -13,6 +15,8 @@ otel_agent:
           "vectorh-worker-1.vectorh-worker.helm-testing.svc.cluster.local": "Worker-1"
 
 otel_collector:
+  image:
+    pullPolicy: Always
   enabled: true 
 
 otel_prometheus:
