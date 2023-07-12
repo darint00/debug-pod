@@ -7,7 +7,7 @@ otel_agent:
     pullPolicy: Always
   config:
     ema:
-      endpoint: http://vectorh-leader-0:43036/v1
+      endpoint: http://vectormpp-vectorh-leader-0:43036/v1
     attribute_map:
       node_name:
           "vectorh-leader-0.vectorh-leader.helm-testing.svc.cluster.local": "Leader"
